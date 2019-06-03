@@ -1,8 +1,11 @@
 const readline = require('readline');
 
-let one = [' ', ' |',' |']
-let two = [' _ ', ' _|','|_'];
+let zero = [' _', '| |','|_|'];
+let one = ['', ' |',' |'];
+let two = [' _', ' _|','|_'];
 let three = [' _', ' _|',' _|'];
+let four = ['', '|_|','  |']
+let error = [' _', '|_','|_']
 
 const rl = readline.createInterface({
     input: process.stdin,
@@ -10,26 +13,31 @@ const rl = readline.createInterface({
   });
 
 function transform(number) {
-    if(number === '1'){
-        return one;
-    }
-    if(number === '2'){
-        return two;
-    }
-    if(number === '3'){
-        return three;
-    }else{
-        return 'error';
+    switch (number) {
+        case '0':
+            return zero;
+            break;
+        case '1':
+            return one;
+            break;
+        case '2':
+            return two;
+            break;
+        case '3':
+            return three;
+            break;
+        case '4':
+            return four;
+            break;
+        default:
+            return error
+            break;
     }
 }
 
 function show(number){
-    if(number === 'error'){
-        console.log(number);
-    }else{
-        for (let i = 0; i < number.length; i++) {
-            console.log(number[i]);   
-        }
+    for (let i = 0; i < number.length; i++) {
+        console.log(number[i]);   
     }
 }
  
