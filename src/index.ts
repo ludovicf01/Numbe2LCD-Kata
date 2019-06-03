@@ -11,22 +11,25 @@ const rl = readline.createInterface({
 
 function transform(number) {
     if(number === '1'){
-        for (let i = 0; i < one.length; i++) {
-            console.log(one[i]);   
-        }
-    return one;
+        return one;
     }
     if(number === '2'){
-        for (let i = 0; i < two.length; i++) {
-            console.log(two[i]);   
-        }
-    return two;
+        return two;
     }
     if(number === '3'){
-        for (let i = 0; i < three.length; i++) {
-            console.log(three[i]);   
+        return three;
+    }else{
+        return 'error';
+    }
+}
+
+function show(number){
+    if(number === 'error'){
+        console.log(number);
+    }else{
+        for (let i = 0; i < number.length; i++) {
+            console.log(number[i]);   
         }
-    return three;
     }
 }
  
@@ -35,7 +38,8 @@ module.exports = {
 }
 
 rl.question('tape your number: ', (answer) => {
-    transform(answer);
+    let digit = transform(answer);
+    show(digit);
     rl.close();
 });
 
